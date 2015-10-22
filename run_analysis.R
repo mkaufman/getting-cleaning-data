@@ -73,6 +73,7 @@ names(y_complete) <- "activities"
 # clean up labels_subset
 cleaned_labels_subset <- gsub("std","standarddeviation",labels_subset)
 cleaned_labels_subset <- gsub("Acc","acceleration",cleaned_labels_subset)
+cleaned_labels_subset <- gsub("Gyro","angularvelocity",cleaned_labels_subset)
 cleaned_labels_subset <- gsub("[\\(\\)-]","",cleaned_labels_subset)
 cleaned_labels_subset <- gsub("BodyBody","Body",cleaned_labels_subset)
 cleaned_labels_subset <- gsub("tBody","timebody",cleaned_labels_subset)
@@ -81,8 +82,6 @@ cleaned_labels_subset <- gsub("fBody","frequencybody",cleaned_labels_subset)
 cleaned_labels_subset <- gsub("fGravity","frequencygravity",cleaned_labels_subset)
 cleaned_labels_subset <- tolower(cleaned_labels_subset)
 
-
-## this clean-up is not quite done, but good enough for now.
 
 # rename the names attributes in x_complete to more descriptive terms from labels
 names(x_subset) <- cleaned_labels_subset
