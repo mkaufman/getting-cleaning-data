@@ -66,7 +66,7 @@ In the section identified as Step 2, the features file, which includes the descr
 In the section identified as Step 3, the activity labels are translated from one of the six numeric values to the English word describing the activity (WALKING, WALKING_UPSTAIRS, WALKING_DOWNSTAIRS, SITTING, STANDING, LAYING). In addition the column name is changed to "activities" to meet the requirements of a tidy set.
 
 ###Step 4
-In the section identified as Step 4, the feature/measurement variable labels are modified to be more descriptive and meet with the guidelines provided by the instructors and the norms of the the class members to meet the requirements of a tidy data set. I've made the names lowercase, removed non-alphanumerics, and expanded some abbreviations to the full word. (I personally find the standards a bit hard to read, and would prefer camel case but am going with the consensus here.)
+In the section identified as Step 4, the feature/measurement variable labels are modified to be more descriptive and meet with the guidelines provided by the instructors and the norms of the the class members to meet the requirements of a tidy data set. I've made the names lowercase, removed non-alphanumerics, and expanded most abbreviations to the full Englishword. (I personally find the standards a bit hard to read, and would prefer camel case but am going with the consensus here.)
 
 The cleaned up feature label names are assigned as the column names to our measurement data frame, x_subset.
 
@@ -76,3 +76,10 @@ In the section identified as Step 5, a tidy data set in put together that includ
 The dplyr package is loaded, and a new dataset, tidy_ds2 is created that summarises the data, providing the average of each variable for each activity and each subject.
 
 The new tidy_ds2 data file is then written to course_project.txt using write.table and row.names = FALSE per the instructions. 
+
+The data file meets the requirements of tidy data:
+1. Each variable measured should is in one column
+2. Each different observation of that variable is in a different row
+3. There is one table for each "kind" of variable
+
+More information on the variables is included in the accompanying CodeBook.md
