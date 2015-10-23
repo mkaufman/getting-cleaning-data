@@ -1,8 +1,5 @@
 # Step 1. Merges the training and the test sets to create one data set.
 
-# activity_labels.txt; dim 6 x 2
-
-
 # read in the Test set as x_test; dim 2947 x 561
 x_test <- read.table("./UCI\ HAR\ Dataset/test/X_test.txt")
 
@@ -33,24 +30,24 @@ subject_complete <- rbind(subject_test, subject_train)
 # rename the name attribute of subject_complete to more descriptive term: "subject"
 names(subject_complete) <- "subject"
 
+
 # Step 2. Extracts only the measurements on the mean and standard deviation for
 # each measurement. 
-# Will likely use some partial matching on "mean" and "std" in features.txt
 
 # read in Features features.txt; dim 561, 2
 features <- read.table("./UCI\ HAR\ Dataset/features.txt")
 
 #assign just the feature label values to labels
-labels <- as.character(features[,2])
+feature_labels <- as.character(features[,2])
 
 # match for mean() or std()
-boolean_vector <- grep("mean\\(\\)|std\\(\\)", labels)
+boolean_vector <- grep("mean\\(\\)|std\\(\\)", feature_labels)
 
 # subset x_complete; dim 10299 x 66
 x_subset <- x_complete[boolean_vector]
 
 # subset feature label list since we'll need this later dim: 66
-labels_subset <- labels[boolean_vector]
+labels_subset <- feature_labels[boolean_vector]
 
 
 ## Step. 3 Use descriptive activity names to name the activities in the data set
@@ -86,6 +83,7 @@ cleaned_labels_subset <- tolower(cleaned_labels_subset)
 # rename the names attributes in x_complete to more descriptive terms from labels
 names(x_subset) <- cleaned_labels_subset
 
+
 ## Step 5: From the data set in step 4, creates a second, independent tidy data
 ## set with the average of each variable for each activity and each subject.
 
@@ -103,4 +101,4 @@ by_subject <- total_clean%>% group_by(subject, activities)
 tidy_ds2 <- by_subject %>% summarise_each(funs(mean))
 
 ## write the file
-write.table(tidy_ds2, file = "course_project.txt", row.names = TRUE)
+write.table(tidy_ds2, file = "course_project.txt", row.names = FALSE)
