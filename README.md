@@ -32,7 +32,7 @@ I interpreted the assignment instructions to "Extracts only the measurements on 
 
 
 ## The Data Files
-The script assumes that you have downloaded and extracted the zip file for the project data (https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip) into your working directory, leaving the structure of the extracted zip file intact.
+The script assumes that you have downloaded and extracted the zip file for the project data (https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip) into your working directory, LEAVING THE STRUCTURE OF THE EXTRACTED ZIP FILE INTACT.
 
 The README.txt included with the data files includes a full description of all the files, but the one's that my script uses are described below
 
@@ -78,7 +78,7 @@ The dplyr package is loaded, and a new dataset, tidy_ds2 is created that summari
 The new tidy_ds2 data file is then written to course_project.txt using write.table and row.names = FALSE per the instructions. 
 
 The data file meets the requirements of tidy data:
-1. Each variable measured should is in one column
+1. Each variable measured is in one column
 2. Each different observation of that variable is in a different row
 3. There is one table for each "kind" of variable
 
